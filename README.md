@@ -27,7 +27,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - node1  # Замените на имя вашей ноды
+          - ilko-virtualbox
 ```
 
 **1.2. PVC (local-pvc.yaml):**
