@@ -92,14 +92,16 @@ kubectl apply -f deployment.yaml
 kubectl get pv,pvc,pods
 
 # Смотрим логи из multitool
-kubectl exec -it <pod-name> -c multitool -- cat /shared-data/log.txt
+kubectl exec -it shared-storage-deployment-b9487755-v88qw -c multitool -- cat /shared-data/log.txt
 ```
+![image](https://github.com/user-attachments/assets/65dc5158-e175-4425-9da5-c8176999e38e)
 
 ### 4. Удаляем Deployment и PVC
 ```bash
 kubectl delete deployment shared-storage-deployment
 kubectl delete pvc local-pvc
 ```
+![image](https://github.com/user-attachments/assets/b1d7250e-6708-4dd7-a911-2914a6a3e2f4)
 
 ### 5. Проверяем состояние PV
 ```bash
@@ -112,12 +114,14 @@ kubectl get pv
 # На ноде проверяем содержимое /mnt/data/log.txt
 cat /mnt/data/log.txt
 ```
+![image](https://github.com/user-attachments/assets/2c5f84e5-88a0-4e50-acaa-9db9679f67a1)
 
 ### 7. Удаляем PV
 ```bash
 kubectl delete pv local-pv
 # Файл останется на ноде, так как PV был с политикой Retain
 ```
+![image](https://github.com/user-attachments/assets/6d14c227-f1b9-4c82-ba78-73fcdf041027)
 
 ## Задание 2: Работа с NFS
 
