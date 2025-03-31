@@ -196,10 +196,10 @@ kubectl apply -f nfs-deployment.yaml
 ### 4. Проверяем работу
 ```bash
 # Записываем файл
-kubectl exec -it <pod-name> -- sh -c "echo 'Test NFS' > /nfs-data/test.txt"
+kubectl exec -it nfs-deployment-5cbd554dfc-c5ljs -- sh -c "echo 'Test NFS' > /nfs-data/test.txt"
 
 # Читаем файл
-kubectl exec -it <pod-name> -- cat /nfs-data/test.txt
+kubectl exec -it nfs-deployment-5cbd554dfc-c5ljs -- cat /nfs-data/test.txt
 ```
 
 ## Выводы
